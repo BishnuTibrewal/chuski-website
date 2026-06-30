@@ -3,11 +3,11 @@ import { Container, Typography } from '@mui/material'
 const terms = [
   {
     title: 'General use',
-    text: 'This placeholder website is provided for brand presentation. Final terms should be reviewed by legal counsel before launch.',
+    text: 'By using this website, you agree to access CHUSKI product and brand information responsibly and for lawful purposes.',
   },
   {
     title: 'Product information',
-    text: 'Flavor, ingredient, allergen, nutrition, availability, and packaging information shown here is placeholder content.',
+    text: 'Product flavours, ingredients, pack sizes, availability, and packaging may vary by location, batch, and retail partner.',
   },
   {
     title: 'Intellectual property',
@@ -15,7 +15,7 @@ const terms = [
   },
   {
     title: 'Limitation of liability',
-    text: 'Production terms can define responsibility for website use, product purchases, distributor relationships, and customer support.',
+    text: 'CHUSKI is not responsible for misuse of website information, third-party links, or product handling outside recommended storage conditions.',
   },
 ]
 
@@ -27,8 +27,8 @@ function TermsConditions() {
           <Typography className="eyebrow">Legal</Typography>
           <Typography variant="h1">Terms & Conditions</Typography>
           <Typography className="page-hero__copy">
-            Placeholder legal content for CHUSKI. Replace these sections with
-            approved policies before production release.
+            Please read these terms before using the CHUSKI website, browsing
+            products, or contacting us for retail and distribution enquiries.
           </Typography>
         </Container>
       </section>

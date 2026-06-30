@@ -1,6 +1,33 @@
-import { Container, Grid, Stack, Typography } from '@mui/material'
+import { Container, Grid, IconButton, Stack, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
+import FacebookIcon from '@mui/icons-material/Facebook'
+import InstagramIcon from '@mui/icons-material/Instagram'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import XIcon from '@mui/icons-material/X'
 import BrandLogo from '../components/BrandLogo'
+
+const socialLinks = [
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/chuski',
+    icon: <InstagramIcon />,
+  },
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/chuski',
+    icon: <FacebookIcon />,
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/chuski',
+    icon: <LinkedInIcon />,
+  },
+  {
+    label: 'Twitter',
+    href: 'https://x.com/chuski',
+    icon: <XIcon />,
+  },
+]
 
 function Footer() {
   return (
@@ -10,7 +37,7 @@ function Footer() {
           <Grid size={{ xs: 12, md: 5 }}>
             <BrandLogo />
             <Typography className="site-footer__copy">
-              CHUSKI creates bright, hygienic, joy-first ice pops for modern Indian
+              CHUSKI makes colourful, individually sealed tube ice pops for Indian
               families, retailers, schools, events, and summer celebrations.
             </Typography>
           </Grid>
@@ -33,13 +60,28 @@ function Footer() {
           <Grid size={{ xs: 12, sm: 4, md: 3 }}>
             <Typography className="footer-heading">Fresh from the freezer</Typography>
             <Typography className="site-footer__copy">
-              Placeholder newsletter, distributor, and city availability content can
-              be connected when the business details are ready.
+              Follow CHUSKI for flavour drops, freezer updates, retail news, and
+              summer moments worth sharing.
             </Typography>
+            <Stack direction="row" spacing={1} className="footer-socials">
+              {socialLinks.map((social) => (
+                <IconButton
+                  key={social.label}
+                  component="a"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open CHUSKI on ${social.label}`}
+                  className="footer-socials__link"
+                >
+                  {social.icon}
+                </IconButton>
+              ))}
+            </Stack>
           </Grid>
         </Grid>
         <div className="site-footer__bottom">
-          <span>© {new Date().getFullYear()} CHUSKI Foods. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} CHUSKI Foods. All rights reserved.</span>
           <span>Little Licks of Happiness.</span>
         </div>
       </Container>

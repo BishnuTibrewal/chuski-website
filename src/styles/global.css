@@ -640,6 +640,23 @@
   color: #ffffff;
 }
 
+.footer-socials {
+  margin-top: 18px;
+}
+
+.footer-socials__link {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.footer-socials__link:hover {
+  color: #241133 !important;
+  background: #ffffff !important;
+}
+
 .site-footer__bottom {
   display: flex;
   flex-wrap: wrap;

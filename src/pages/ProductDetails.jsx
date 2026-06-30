@@ -14,8 +14,7 @@ function ProductDetails() {
         <Container maxWidth="md">
           <Typography variant="h1">Product not found</Typography>
           <Typography color="text.secondary">
-            The product you are looking for is not available in this placeholder
-            catalog.
+            The product you are looking for is not available in the CHUSKI range.
           </Typography>
           <Button component={Link} to="/products" startIcon={<ArrowBackRoundedIcon />}>
             Back to products
@@ -89,7 +88,7 @@ function ProductDetails() {
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
               <div className="info-panel">
-                <Typography variant="h3">Placeholder ingredients</Typography>
+                <Typography variant="h3">Ingredients</Typography>
                 <ul className="clean-list">
                   {product.ingredients.map((item) => (
                     <li key={item}>{item}</li>

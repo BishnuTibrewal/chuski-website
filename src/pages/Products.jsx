@@ -11,8 +11,8 @@ function Products() {
           <Typography className="eyebrow">Products</Typography>
           <Typography variant="h1">Colorful pops for every freezer</Typography>
           <Typography className="page-hero__copy">
-            Placeholder catalog content for CHUSKI's flavor range, pack sizes,
-            nutritional highlights, and trade information.
+            Explore CHUSKI's flavour range of individually sealed tube ice pops,
+            made for quick refreshment, freezer visibility, and everyday cravings.
           </Typography>
         </Container>
       </section>
@@ -22,7 +22,7 @@ function Products() {
           <SectionHeader
             eyebrow="Signature range"
             title="Choose your lick of happiness"
-            description="Each product detail page is route-driven and ready for real SKUs, pricing, availability, and media."
+            description="From mango and cola classics to tangy Indian favourites, each flavour is crafted to feel familiar, colourful, and easy to stock."
           />
           <Grid container spacing={3}>
             {products.map((product) => (

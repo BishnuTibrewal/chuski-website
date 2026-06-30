@@ -9,8 +9,8 @@ function About() {
           <Typography className="eyebrow">About CHUSKI</Typography>
           <Typography variant="h1">Built for bright freezer moments</Typography>
           <Typography className="page-hero__copy">
-            CHUSKI is a placeholder FMCG ice pops brand with a premium, playful
-            identity and a simple promise: Little Licks of Happiness.
+            CHUSKI brings back the simple joy of tube ice pops with vibrant
+            flavours, clean packaging, and a playful brand made for Indian summers.
           </Typography>
         </Container>
       </section>
@@ -23,22 +23,21 @@ function About() {
                 align="left"
                 eyebrow="Our story"
                 title="Small treats, big recall"
-                description="This page is ready for founder notes, sourcing commitments, manufacturing details, and brand milestones."
+                description="We make freezer treats that are easy to stock, easy to love, and memorable from the first cold sip."
               />
             </Grid>
             <Grid size={{ xs: 12, md: 7 }}>
               <div className="story-panel">
                 <Typography>
-                  CHUSKI celebrates the familiar joy of an ice pop with modern
-                  FMCG polish. The brand system is colorful, approachable, and
-                  built for quick recognition across freezers, posters, digital
-                  shelves, and distributor material.
+                  CHUSKI celebrates the familiar joy of tearing open a chilled
+                  tube pop after school, during a market run, or at a summer event.
+                  The experience is simple: bright flavour, icy refreshment, and a
+                  smile in every pack.
                 </Typography>
                 <Typography>
-                  Placeholder messaging can be replaced with verified operational
-                  details such as production capacity, city availability, retailer
-                  onboarding, ingredient policy, certifications, and customer care
-                  response timelines.
+                  For retailers and distributors, the range is built with clear
+                  flavour cues, compact freezer storage, and a colourful shelf
+                  presence that helps customers pick quickly and come back often.
                 </Typography>
               </div>
             </Grid>
@@ -51,8 +50,8 @@ function About() {
           <Grid container spacing={3}>
             {[
               ['Playful', 'A brand voice that feels joyful without losing trust.'],
-              ['Premium', 'A polished presentation for modern retail and gifting.'],
-              ['Scalable', 'Reusable content blocks for future commerce and campaigns.'],
+              ['Fresh', 'Icy, fruit-led profiles made for hot days and quick refreshment.'],
+              ['Retail smart', 'Compact tube packs designed for visibility, hygiene, and repeat sales.'],
             ].map(([title, text]) => (
               <Grid size={{ xs: 12, md: 4 }} key={title}>
                 <div className="value-card">

@@ -39,8 +39,8 @@ function Home() {
                   Little Licks of Happiness.
                 </Typography>
                 <Typography className="hero-copy">
-                  Colorful, hygienic, craveable ice pops crafted for retail
-                  freezers, school canteens, events, and everyday summer smiles.
+                  Colorful, individually sealed tube ice pops made for retail
+                  freezers, school canteens, events, and everyday summer cravings.
                 </Typography>
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
                   <Button
@@ -95,7 +95,7 @@ function Home() {
           <SectionHeader
             eyebrow="Freezer favorites"
             title="A flavor lineup made to move"
-            description="Placeholder catalog content for launch decks, distributor conversations, and future ecommerce flows."
+            description="Bright, fast-moving flavours packed for impulse buys, repeat customers, and the kind of chilled refreshment India loves."
           />
           <div className="product-scroll" aria-label="Scrollable product lineup">
             {products.map((product) => (
@@ -114,17 +114,17 @@ function Home() {
               {
                 icon: <VerifiedRoundedIcon />,
                 title: 'Quality-led',
-                text: 'Placeholder HACCP, sourcing, and hygiene copy can live here once certifications are finalized.',
+                text: 'Individually sealed tube packs help keep every pop clean, convenient, and easy to enjoy on the move.',
               },
               {
                 icon: <StorefrontRoundedIcon />,
                 title: 'Retail-ready',
-                text: 'Designed for freezer visibility, compact stocking, and fast flavor recognition at point of sale.',
+                text: 'Bold colours, clear flavours, and compact packs are designed for quick freezer visibility at point of sale.',
               },
               {
                 icon: <LocalShippingRoundedIcon />,
                 title: 'Distribution-friendly',
-                text: 'Future logistics, minimum order quantities, and cold-chain details can be connected here.',
+                text: 'Built for cold-chain handling, school counters, event vendors, and neighbourhood stores that need easy rotation.',
               },
             ].map((item) => (
               <Grid size={{ xs: 12, md: 4 }} key={item.title}>

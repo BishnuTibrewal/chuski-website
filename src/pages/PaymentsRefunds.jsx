@@ -3,19 +3,19 @@ import { Container, Grid, Typography } from '@mui/material'
 const policies = [
   {
     title: 'Payments',
-    text: 'Placeholder payment copy for prepaid orders, distributor invoices, UPI, cards, wallets, and future checkout integrations.',
+    text: 'CHUSKI accepts confirmed payments through approved business channels for retail, event, and distributor orders.',
   },
   {
     title: 'Refund eligibility',
-    text: 'Refunds may depend on order status, temperature-sensitive delivery constraints, damaged goods verification, and support review.',
+    text: 'Refund requests are reviewed based on order status, delivery condition, temperature-sensitive handling, and verified product concerns.',
   },
   {
     title: 'Processing timeline',
-    text: 'Approved refunds can be described with a clear timeline once payment partners and operating procedures are finalized.',
+    text: 'Approved refunds are processed through the original or agreed payment method after the support team completes its review.',
   },
   {
     title: 'Customer support',
-    text: 'Add verified support hours, email addresses, escalation steps, and required order details before launch.',
+    text: 'For faster support, share your order details, purchase location, product flavour, batch information, and clear photos if applicable.',
   },
 ]
 
@@ -27,8 +27,8 @@ function PaymentsRefunds() {
           <Typography className="eyebrow">Support</Typography>
           <Typography variant="h1">Payments & Refunds</Typography>
           <Typography className="page-hero__copy">
-            Clear placeholder policy content for payment methods, cancellations,
-            refunds, and support workflows.
+            Simple guidance for order payments, cancellations, refund reviews, and
+            customer support for CHUSKI ice pops.
           </Typography>
         </Container>
       </section>
