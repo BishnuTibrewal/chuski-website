@@ -11,8 +11,9 @@ function IcePopVisual({ gradient, color, label, size = 'medium' }) {
       transition={{ type: 'spring', stiffness: 220, damping: 16 }}
     >
       <span className="ice-pop__shine" />
-      <span className="ice-pop__bite" />
-      <span className="ice-pop__stick" />
+      <span className="ice-pop__frost ice-pop__frost--top" />
+      <span className="ice-pop__frost ice-pop__frost--bottom" />
+      <span className="ice-pop__label">CHUSKI</span>
     </motion.div>
   )
 }

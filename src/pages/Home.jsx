@@ -11,10 +11,12 @@ import SectionHeader from '../components/SectionHeader'
 import { products } from '../data/products'
 
 const stats = [
-  { value: '4', label: 'Signature flavors' },
-  { value: '45 ml', label: 'Perfect snack size' },
+  { value: '5', label: 'Signature flavors' },
+  { value: '50 ml', label: 'Perfect snack size' },
   { value: '100%', label: 'Joy-first brand feel' },
 ]
+
+const heroProducts = products.slice(0, 4)
 
 function Home() {
   return (
@@ -64,7 +66,7 @@ function Home() {
                 transition={{ duration: 0.7, delay: 0.1 }}
               >
                 <div className="hero-freezer__shelf" />
-                {products.map((product, index) => (
+                {heroProducts.map((product, index) => (
                   <div className={`hero-freezer__pop hero-freezer__pop--${index}`} key={product.id}>
                     <IcePopVisual
                       gradient={product.gradient}
@@ -95,13 +97,13 @@ function Home() {
             title="A flavor lineup made to move"
             description="Placeholder catalog content for launch decks, distributor conversations, and future ecommerce flows."
           />
-          <Grid container spacing={3}>
-            {products.slice(0, 3).map((product) => (
-              <Grid size={{ xs: 12, md: 4 }} key={product.id}>
+          <div className="product-scroll" aria-label="Scrollable product lineup">
+            {products.map((product) => (
+              <div className="product-scroll__item" key={product.id}>
                 <ProductCard product={product} />
-              </Grid>
+              </div>
             ))}
-          </Grid>
+          </div>
         </Container>
       </section>
 

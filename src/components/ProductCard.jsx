@@ -4,10 +4,13 @@ import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
 import IcePopVisual from './IcePopVisual'
 
 function ProductCard({ product }) {
+  const isComingSoon = product.status === 'coming-soon'
+
   return (
     <Card className="product-card">
       <CardContent className="product-card__content">
         <div className="product-card__visual">
+          {isComingSoon && <Chip label="Coming soon" className="coming-soon-badge" />}
           <IcePopVisual
             gradient={product.gradient}
             color={product.color}
@@ -15,7 +18,10 @@ function ProductCard({ product }) {
           />
         </div>
         <Stack spacing={1.5}>
-          <Chip label={product.flavor} className="product-card__chip" />
+          <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
+            <Chip label={product.flavor} className="product-card__chip" />
+            {isComingSoon && <Chip label="Coming soon" className="coming-soon-badge" />}
+          </Stack>
           <Typography variant="h3">{product.name}</Typography>
           <Typography color="text.secondary">{product.shortDescription}</Typography>
           <Button

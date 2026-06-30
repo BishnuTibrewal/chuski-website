@@ -25,6 +25,8 @@ function ProductDetails() {
     )
   }
 
+  const isComingSoon = product.status === 'coming-soon'
+
   return (
     <>
       <section className="product-detail-hero">
@@ -40,7 +42,10 @@ function ProductDetails() {
                 >
                   Back to products
                 </Button>
-                <Chip label={product.flavor} className="detail-chip" />
+                <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
+                  <Chip label={product.flavor} className="detail-chip" />
+                  {isComingSoon && <Chip label="Coming soon" className="coming-soon-badge" />}
+                </Stack>
                 <Typography variant="h1">{product.name}</Typography>
                 <Typography className="page-hero__copy">{product.description}</Typography>
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
