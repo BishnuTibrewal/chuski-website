@@ -8,7 +8,6 @@ function Products() {
     <>
       <section className="page-hero page-hero--products">
         <Container maxWidth="lg">
-          <Typography className="eyebrow">Products</Typography>
           <Typography variant="h1">Colorful pops for every freezer</Typography>
           <Typography className="page-hero__copy">
             Explore CHUSKI's flavour range of individually sealed tube ice pops,
@@ -21,7 +20,7 @@ function Products() {
         <Container maxWidth="xl">
           <SectionHeader
             eyebrow="Signature range"
-            title="Choose your lick of happiness"
+            title="Choose your happiness !"
             description="From mango and cola classics to tangy Indian favourites, each flavour is crafted to feel familiar, colourful, and easy to stock."
           />
           <Grid container spacing={3}>

@@ -94,7 +94,7 @@ function Home() {
         <Container maxWidth="xl">
           <SectionHeader
             eyebrow="Freezer favorites"
-            title="A flavor lineup made to move"
+            title="Your Favourite Flavours !"
             description="Bright, fast-moving flavours packed for impulse buys, repeat customers, and the kind of chilled refreshment India loves."
           />
           <div className="product-scroll" aria-label="Scrollable product lineup">

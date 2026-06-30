@@ -52,8 +52,8 @@ function Footer() {
           <Grid size={{ xs: 12, sm: 4, md: 2 }}>
             <Typography className="footer-heading">Support</Typography>
             <Stack className="footer-links">
-              <a href="mailto:hello@chuski.example">hello@chuski.example</a>
-              <a href="tel:+910000000000">+91 00000 00000</a>
+              <a href="mailto:hello@chuski.example">admin@chuski.co.in</a>
+              <a href="tel:+916294922649">+91 6294922649</a>
               <Link to="/terms-and-conditions">Terms</Link>
             </Stack>
           </Grid>
