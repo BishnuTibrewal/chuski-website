@@ -114,7 +114,8 @@
 .hero-title {
   margin: 10px 0 0 !important;
   color: #241133;
-  font-size: 5.6rem !important;
+  font-size: clamp(4.1rem, 7vw, 5.6rem) !important;
+  overflow-wrap: anywhere;
 }
 
 .hero-tagline {
@@ -329,6 +330,11 @@
   margin-inline: auto;
 }
 
+.section-header h2 {
+  font-size: clamp(2rem, 5vw, 3.75rem) !important;
+  overflow-wrap: anywhere;
+}
+
 .section-header__description {
   margin-top: 14px !important;
   color: #62536f;
@@ -405,6 +411,8 @@
 
 .page-hero h1 {
   margin-top: 18px;
+  font-size: clamp(2.45rem, 7vw, 5rem) !important;
+  overflow-wrap: anywhere;
 }
 
 .page-hero__copy {
@@ -432,6 +440,11 @@
 
 .product-detail-hero {
   padding: 88px 0;
+}
+
+.product-detail-hero h1 {
+  font-size: clamp(2.45rem, 6vw, 4.5rem) !important;
+  overflow-wrap: anywhere;
 }
 
 .back-button {
@@ -552,6 +565,7 @@
 .footer-links a {
   color: rgba(255, 255, 255, 0.76);
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
 .footer-links a:hover {
@@ -581,7 +595,7 @@
   }
 
   .hero-title {
-    font-size: 4.1rem !important;
+    font-size: clamp(3.2rem, 8vw, 4.1rem) !important;
   }
 
   .hero-freezer {
@@ -614,7 +628,7 @@
   }
 
   .hero-title {
-    font-size: 3.2rem !important;
+    font-size: clamp(2.6rem, 12vw, 3.2rem) !important;
   }
 
   .hero-tagline {
@@ -691,7 +705,7 @@
   }
 
   .hero-title {
-    font-size: 2.6rem !important;
+    font-size: clamp(2.3rem, 13vw, 2.6rem) !important;
   }
 
   .hero-freezer {

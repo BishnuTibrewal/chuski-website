@@ -1,4 +1,5 @@
 import { Container, Grid, Stack, Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
 import BrandLogo from '../components/BrandLogo'
 
 function Footer() {
@@ -16,9 +17,9 @@ function Footer() {
           <Grid size={{ xs: 12, sm: 4, md: 2 }}>
             <Typography className="footer-heading">Explore</Typography>
             <Stack className="footer-links">
-              <a href="/about">About</a>
-              <a href="/products">Products</a>
-              <a href="/payments-and-refunds">Refunds</a>
+              <Link to="/about">About</Link>
+              <Link to="/products">Products</Link>
+              <Link to="/payments-and-refunds">Refunds</Link>
             </Stack>
           </Grid>
           <Grid size={{ xs: 12, sm: 4, md: 2 }}>
@@ -26,7 +27,7 @@ function Footer() {
             <Stack className="footer-links">
               <a href="mailto:hello@chuski.example">hello@chuski.example</a>
               <a href="tel:+910000000000">+91 00000 00000</a>
-              <a href="/terms-and-conditions">Terms</a>
+              <Link to="/terms-and-conditions">Terms</Link>
             </Stack>
           </Grid>
           <Grid size={{ xs: 12, sm: 4, md: 3 }}>
