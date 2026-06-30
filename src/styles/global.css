@@ -38,39 +38,19 @@
 .brand-logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
   color: #261b38;
+  flex-shrink: 0;
+  padding: 4px 0;
   text-decoration: none;
 }
 
-.brand-logo__mark {
-  display: grid;
-  width: 46px;
-  height: 46px;
-  place-items: center;
-  border-radius: 8px;
-  color: #ffffff;
-  font-size: 1.35rem;
-  font-weight: 950;
-  background: linear-gradient(145deg, #e72977, #ffb000 54%, #00a6b7);
-  box-shadow: 0 16px 35px rgba(231, 41, 119, 0.25);
-}
-
-.brand-logo__name,
-.brand-logo__tagline {
+.brand-logo__image {
   display: block;
-  letter-spacing: 0;
-}
-
-.brand-logo__name {
-  font-size: 1.08rem;
-  font-weight: 950;
-}
-
-.brand-logo__tagline {
-  color: #7a6787;
-  font-size: 0.76rem;
-  font-weight: 750;
+  width: auto;
+  max-width: min(220px, 52vw);
+  max-height: 58px;
+  border-radius: 6px;
+  object-fit: contain;
 }
 
 .nav-link {
@@ -542,7 +522,10 @@
   color: #ffffff;
 }
 
-.site-footer .brand-logo__tagline,
+.site-footer .brand-logo__image {
+  max-height: 60px;
+}
+
 .site-footer__copy {
   color: rgba(255, 255, 255, 0.72);
 }
@@ -616,8 +599,9 @@
     min-height: 72px;
   }
 
-  .brand-logo__tagline {
-    display: none;
+  .brand-logo__image {
+    max-width: min(190px, 58vw);
+    max-height: 52px;
   }
 
   .hero-section,
@@ -695,13 +679,9 @@
 }
 
 @media (max-width: 480px) {
-  .brand-logo__mark {
-    width: 42px;
-    height: 42px;
-  }
-
-  .brand-logo__name {
-    font-size: 1rem;
+  .brand-logo__image {
+    max-width: min(168px, 54vw);
+    max-height: 48px;
   }
 
   .hero-title {
