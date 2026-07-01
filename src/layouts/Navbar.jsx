@@ -38,7 +38,7 @@ function Navbar() {
       end={item.path === '/'}
     >
       <span className="nav-link__full">{item.label}</span>
-      {item.shortLabel && <span className="nav-link__short">{item.shortLabel}</span>}
+      <span className="nav-link__short">{item.shortLabel ?? item.label}</span>
     </NavLink>
   )
 
