@@ -1,4 +1,5 @@
 import { Container, Grid, Typography } from '@mui/material'
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded'
 import ProductCard from '../components/ProductCard'
 import SectionHeader from '../components/SectionHeader'
 import { products } from '../data/products'
@@ -13,10 +14,14 @@ function Products() {
             Explore CHUSKI's flavour range of individually sealed tube ice pops,
             made for quick refreshment, freezer visibility, and everyday cravings.
           </Typography>
+          <a className="scroll-cue" href="#products-list" aria-label="Scroll to product list">
+            <span>See the range</span>
+            <KeyboardArrowDownRoundedIcon />
+          </a>
         </Container>
       </section>
 
-      <section className="section">
+      <section className="section" id="products-list">
         <Container maxWidth="xl">
           <SectionHeader
             eyebrow="Signature range"

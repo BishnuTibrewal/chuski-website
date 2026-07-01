@@ -18,7 +18,11 @@ const navItems = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
   { label: 'Products', path: '/products' },
-  { label: 'Terms', path: '/terms-and-conditions' },
+  {
+    label: 'Terms&Conditions',
+    shortLabel: 'T&C',
+    path: '/terms-and-conditions',
+  },
   { label: 'Payments', path: '/payments-and-refunds' },
 ]
 
@@ -33,7 +37,8 @@ function Navbar() {
       onClick={() => setOpen(false)}
       end={item.path === '/'}
     >
-      {item.label}
+      <span className="nav-link__full">{item.label}</span>
+      {item.shortLabel && <span className="nav-link__short">{item.shortLabel}</span>}
     </NavLink>
   )
 

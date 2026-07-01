@@ -54,7 +54,10 @@ function Footer() {
             <Stack className="footer-links">
               <a href="mailto:hello@chuski.example">admin@chuski.co.in</a>
               <a href="tel:+916294922649">+91 6294922649</a>
-              <Link to="/terms-and-conditions">Terms</Link>
+              <Link to="/terms-and-conditions">
+                <span className="footer-link__full">Terms&Conditions</span>
+                <span className="footer-link__short">T&C</span>
+              </Link>
             </Stack>
           </Grid>
           <Grid size={{ xs: 12, sm: 4, md: 3 }}>

@@ -5,6 +5,7 @@ import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
 import LocalShippingRoundedIcon from '@mui/icons-material/LocalShippingRounded'
 import StorefrontRoundedIcon from '@mui/icons-material/StorefrontRounded'
 import VerifiedRoundedIcon from '@mui/icons-material/VerifiedRounded'
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded'
 import IcePopVisual from '../components/IcePopVisual'
 import ProductCard from '../components/ProductCard'
 import SectionHeader from '../components/SectionHeader'
@@ -17,11 +18,16 @@ const stats = [
 ]
 
 const heroProducts = products.slice(0, 4)
+const flavourTicker = ['Kacchi Kick', 'Mast Mango', 'Kala Khatta', 'Orange Oye!', 'Litchi Love']
+const heroTitle = ['C', 'H', 'U', 'S', 'K', 'I']
 
 function Home() {
   return (
     <>
       <section className="hero-section">
+        <span className="hero-fun-prop hero-fun-prop--berry">Kala khatta</span>
+        <span className="hero-sparkle hero-sparkle--one" />
+        <span className="hero-sparkle hero-sparkle--two" />
         <Container maxWidth="xl">
           <Grid container spacing={5} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }}>
@@ -31,9 +37,11 @@ function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65 }}
               >
-                <Typography className="eyebrow">Premium FMCG ice pops</Typography>
+                <Typography className="eyebrow">Premium Ice pops</Typography>
                 <Typography variant="h1" className="hero-title">
-                  CHUSKI
+                  {heroTitle.map((letter, index) => (
+                    <span key={`${letter}-${index}`}>{letter}</span>
+                  ))}
                 </Typography>
                 <Typography className="hero-tagline">
                   Little Licks of Happiness.
@@ -65,6 +73,7 @@ function Home() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
               >
+                <div className="hero-freezer__tag">Freeze. Tear. Sip.</div>
                 <div className="hero-freezer__shelf" />
                 {heroProducts.map((product, index) => (
                   <div className={`hero-freezer__pop hero-freezer__pop--${index}`} key={product.id}>
@@ -81,16 +90,32 @@ function Home() {
           </Grid>
           <div className="hero-stats">
             {stats.map((stat) => (
-              <div className="hero-stat" key={stat.label}>
+              <motion.div
+                className="hero-stat"
+                key={stat.label}
+                whileHover={{ y: -6, rotate: -1 }}
+                transition={{ type: 'spring', stiffness: 220, damping: 16 }}
+              >
                 <strong>{stat.value}</strong>
                 <span>{stat.label}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
+          <div className="flavour-ticker" aria-label="Featured CHUSKI flavours">
+            <div className="flavour-ticker__track">
+              {[...flavourTicker, ...flavourTicker].map((flavour, index) => (
+                <span key={`${flavour}-${index}`}>{flavour}</span>
+              ))}
+            </div>
+          </div>
+          <a className="scroll-cue scroll-cue--home" href="#home-products" aria-label="Scroll to products">
+            <span>Scroll for flavours</span>
+            <KeyboardArrowDownRoundedIcon />
+          </a>
         </Container>
       </section>
 
-      <section className="section">
+      <section className="section" id="home-products">
         <Container maxWidth="xl">
           <SectionHeader
             eyebrow="Freezer favorites"

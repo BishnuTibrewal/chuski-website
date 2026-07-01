@@ -1,4 +1,5 @@
 import { Container, Typography } from '@mui/material'
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded'
 
 const terms = [
   {
@@ -61,10 +62,14 @@ function TermsConditions() {
             Please read these terms before using the CHUSKI website, browsing
             products, or contacting us for retail and distribution enquiries.
           </Typography>
+          <a className="scroll-cue" href="#terms-content" aria-label="Scroll to terms">
+            <span>Read terms</span>
+            <KeyboardArrowDownRoundedIcon />
+          </a>
         </Container>
       </section>
 
-      <section className="section">
+      <section className="section" id="terms-content">
         <Container maxWidth="md">
           <div className="policy-stack">
             {terms.map((item) => (

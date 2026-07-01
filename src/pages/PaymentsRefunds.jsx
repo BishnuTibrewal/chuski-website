@@ -1,4 +1,5 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded'
 
 const policies = [
   {
@@ -151,10 +152,14 @@ function PaymentsRefunds() {
             Simple guidance for order payments, cancellations, refund reviews, and
             customer support for CHUSKI ice pops.
           </Typography>
+          <a className="scroll-cue" href="#payments-content" aria-label="Scroll to payment and refund details">
+            <span>View policy</span>
+            <KeyboardArrowDownRoundedIcon />
+          </a>
         </Container>
       </section>
 
-      <section className="section">
+      <section className="section" id="payments-content">
         <Container maxWidth="xl">
           <Grid container spacing={3}>
             {policies.map((item) => (

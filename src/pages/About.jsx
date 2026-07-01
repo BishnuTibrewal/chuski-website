@@ -1,4 +1,5 @@
 import { Container, Grid, Typography } from '@mui/material'
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded'
 import SectionHeader from '../components/SectionHeader'
 
 function About() {
@@ -11,10 +12,14 @@ function About() {
             CHUSKI brings back the simple joy of tube ice pops with vibrant
             flavours, clean packaging, and a playful brand made for Indian summers.
           </Typography>
+          <a className="scroll-cue" href="#about-story" aria-label="Scroll to brand story">
+            <span>Meet the brand</span>
+            <KeyboardArrowDownRoundedIcon />
+          </a>
         </Container>
       </section>
 
-      <section className="section">
+      <section className="section" id="about-story">
         <Container maxWidth="xl">
           <Grid container spacing={4} alignItems="center">
             <Grid size={{ xs: 12, md: 5 }}>
