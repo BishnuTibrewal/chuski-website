@@ -10,10 +10,10 @@ export const productImageManifest = {
     "/KacchaAam/mixed-1.png"
   ],
   "mango-mastani": [
+    "/PakkaAam/pakkaAam-2.png",
     "/PakkaAam/PakkaAam-1.png",
     "/PakkaAam/mangoMastani-4.png",
     "/PakkaAam/mixed-1.png",
-    "/PakkaAam/pakkaAam-2.png",
     "/PakkaAam/PakkaAam-3.png"
   ],
   "lalchi-lychee": [
