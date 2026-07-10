@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "generate:product-images": "node scripts/generate-product-image-manifest.mjs",
+    "predev": "npm run generate:product-images",
     "dev": "vite",
+    "prebuild": "npm run generate:product-images",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

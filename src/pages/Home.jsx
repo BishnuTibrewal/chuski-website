@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
@@ -9,6 +10,7 @@ import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownR
 import IcePopVisual from '../components/IcePopVisual'
 import ProductCard from '../components/ProductCard'
 import SectionHeader from '../components/SectionHeader'
+import { homepageHeroImages } from '../data/productImageManifest.generated'
 import { products } from '../data/products'
 
 const stats = [
@@ -22,6 +24,17 @@ const flavourTicker = ['Kacchi Kick', 'Mast Mango', 'Kala Khatta', 'Orange Oye!'
 const heroTitle = ['C', 'H', 'U', 'S', 'K', 'I']
 
 function Home() {
+  const [failedHeroImages, setFailedHeroImages] = useState(() => new Set())
+  const visibleHeroImages = homepageHeroImages.filter((image) => !failedHeroImages.has(image))
+
+  const handleHeroImageError = (image) => {
+    setFailedHeroImages((currentFailedImages) => {
+      const nextFailedImages = new Set(currentFailedImages)
+      nextFailedImages.add(image)
+      return nextFailedImages
+    })
+  }
+
   return (
     <>
       <section className="hero-section">
@@ -73,18 +86,35 @@ function Home() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
               >
-                <div className="hero-freezer__tag">Freeze. Tear. Sip.</div>
-                <div className="hero-freezer__shelf" />
-                {heroProducts.map((product, index) => (
-                  <div className={`hero-freezer__pop hero-freezer__pop--${index}`} key={product.id}>
-                    <IcePopVisual
-                      gradient={product.gradient}
-                      color={product.color}
-                      label={`${product.name} ice pop`}
-                      size="large"
-                    />
+                <div className="hero-freezer__tag">Every CHUSKI has a Story !!</div>
+                {visibleHeroImages.length > 0 ? (
+                  <div className="hero-image-collage" aria-label="Featured CHUSKI ice pop flavours">
+                    {visibleHeroImages.map((image, index) => (
+                      <img
+                        className="hero-image-collage__image"
+                        src={image}
+                        alt={`Featured CHUSKI ice pop ${index + 1}`}
+                        key={image}
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                        onError={() => handleHeroImageError(image)}
+                      />
+                    ))}
                   </div>
-                ))}
+                ) : (
+                  <>
+                    <div className="hero-freezer__shelf" />
+                    {heroProducts.map((product, index) => (
+                      <div className={`hero-freezer__pop hero-freezer__pop--${index}`} key={product.id}>
+                        <IcePopVisual
+                          gradient={product.gradient}
+                          color={product.color}
+                          label={`${product.name} ice pop`}
+                          size="large"
+                        />
+                      </div>
+                    ))}
+                  </>
+                )}
               </motion.div>
             </Grid>
           </Grid>

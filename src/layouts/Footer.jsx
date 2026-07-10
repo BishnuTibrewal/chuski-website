@@ -9,22 +9,22 @@ import BrandLogo from '../components/BrandLogo'
 const socialLinks = [
   {
     label: 'Instagram',
-    href: 'https://www.instagram.com/chuski',
+    href: 'https://www.instagram.com/chuskiicepopspvtltd/',
     icon: <InstagramIcon />,
   },
   {
     label: 'Facebook',
-    href: 'https://www.facebook.com/chuski',
+    href: 'https://www.facebook.com/profile.php?id=61591620309770',
     icon: <FacebookIcon />,
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/company/chuski',
+    href: 'https://www.linkedin.com/in/chuski-icepops-30004b373',
     icon: <LinkedInIcon />,
   },
   {
     label: 'Twitter',
-    href: 'https://x.com/chuski',
+    href: 'https://x.com/chuskiicepops',
     icon: <XIcon />,
   },
 ]

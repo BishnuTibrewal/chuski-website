@@ -255,21 +255,48 @@ html {
 
 .hero-freezer {
   position: relative;
+  overflow: hidden;
   min-height: 520px;
   border: 1px solid rgba(255, 255, 255, 0.78);
   border-radius: 8px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.34)),
-    linear-gradient(135deg, rgba(0, 166, 183, 0.2), rgba(231, 41, 119, 0.18));
-  box-shadow: 0 28px 80px rgba(81, 42, 98, 0.18);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.2)),
+    linear-gradient(135deg, rgba(255, 49, 49, 0.18) 0%, rgba(255, 176, 0, 0.24) 25%, rgba(85, 214, 190, 0.24) 56%, rgba(231, 41, 119, 0.22) 100%);
+  box-shadow: 0 28px 80px rgba(81, 42, 98, 0.2);
   backdrop-filter: blur(18px);
+}
+
+.hero-freezer::before,
+.hero-freezer::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+}
+
+.hero-freezer::before {
+  background:
+    linear-gradient(128deg, transparent 0 12%, rgba(255, 255, 255, 0.56) 12% 18%, transparent 18% 30%),
+    linear-gradient(42deg, transparent 0 52%, rgba(255, 176, 0, 0.34) 52% 60%, transparent 60%),
+    linear-gradient(158deg, transparent 0 62%, rgba(0, 166, 183, 0.28) 62% 71%, transparent 71%),
+    linear-gradient(24deg, transparent 0 18%, rgba(231, 41, 119, 0.22) 18% 25%, transparent 25%);
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+}
+
+.hero-freezer::after {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.24) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 28px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.02));
+  opacity: 0.72;
 }
 
 .hero-freezer__tag {
   position: absolute;
   top: 22px;
   left: 24px;
-  z-index: 2;
+  z-index: 3;
   border: 1px solid rgba(255, 255, 255, 0.76);
   border-radius: 8px;
   padding: 10px 14px;
@@ -325,6 +352,49 @@ html {
   right: 11%;
   top: 112px;
   transform: rotate(-12deg);
+}
+
+.hero-image-collage {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  height: 100%;
+  min-height: 520px;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 18px;
+  padding: 70px 32px 38px;
+}
+
+.hero-image-collage::before {
+  position: absolute;
+  inset: 48px 24px 24px;
+  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.16)),
+    linear-gradient(90deg, rgba(255, 49, 49, 0.12), rgba(255, 176, 0, 0.12), rgba(0, 166, 183, 0.12), rgba(231, 41, 119, 0.12));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  content: '';
+}
+
+.hero-image-collage__image {
+  width: min(100%, 150px);
+  max-height: 360px;
+  object-fit: contain;
+  filter: drop-shadow(0 26px 28px rgba(67, 35, 83, 0.24));
+  animation: hero-tube-bob 5.4s ease-in-out infinite;
+}
+
+.hero-image-collage__image:nth-child(even) {
+  animation-delay: 0.7s;
+  transform: rotate(7deg);
+}
+
+.hero-image-collage__image:nth-child(odd) {
+  transform: rotate(-6deg);
 }
 
 .ice-pop {
@@ -561,6 +631,14 @@ html {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.46), rgba(232, 255, 250, 0.72));
 }
 
+.about-story-section {
+  padding-bottom: 36px;
+}
+
+.about-values-section {
+  padding-top: 48px;
+}
+
 .section-header {
   max-width: 760px;
   margin: 0 auto 42px;
@@ -641,6 +719,15 @@ html {
   top: 14px;
   right: 14px;
   z-index: 1;
+}
+
+.product-card__image {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 220px);
+  height: 220px;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 34px rgba(67, 35, 83, 0.18));
 }
 
 .product-scroll {
@@ -734,13 +821,21 @@ html {
 
 .page-hero h1 {
   margin-top: 18px;
+  color: transparent;
+  background: linear-gradient(90deg, #ff3131 0%, #ffb000 24%, #00a66c 46%, #25b8ff 66%, #7a3db8 82%, #e72977 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
   font-size: clamp(2.45rem, 7vw, 5rem) !important;
   overflow-wrap: anywhere;
+  text-shadow: 0 8px 22px rgba(36, 17, 51, 0.12);
 }
 
 .page-hero__copy {
   margin-right: auto !important;
   margin-left: auto !important;
+  color: #5a2b83 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.68);
 }
 
 .page-hero--about,
@@ -759,6 +854,40 @@ html {
   color: #62536f;
   font-size: 1.05rem;
   line-height: 1.8;
+}
+
+.about-banner {
+  position: relative;
+  overflow: hidden;
+  margin: 42px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 49, 49, 0.16), rgba(255, 176, 0, 0.16), rgba(85, 214, 190, 0.18), rgba(231, 41, 119, 0.16)),
+    rgba(255, 255, 255, 0.72);
+  box-shadow: 0 24px 70px rgba(81, 42, 98, 0.14);
+  padding: 16px;
+}
+
+.about-banner::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, transparent 0 18%, rgba(255, 255, 255, 0.48) 18% 23%, transparent 23% 58%, rgba(255, 176, 0, 0.24) 58% 66%, transparent 66%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 30px);
+  content: '';
+  pointer-events: none;
+}
+
+.about-banner img {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  border-radius: 8px;
+  object-fit: contain;
+  object-position: center;
+  box-shadow: 0 18px 46px rgba(67, 35, 83, 0.16);
 }
 
 .product-detail-hero {
@@ -808,6 +937,62 @@ html {
 .detail-visual--animated .ice-pop {
   z-index: 2;
   animation: detail-tube-float 4.2s ease-in-out infinite;
+}
+
+.detail-gallery {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 100%;
+  min-height: 420px;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 18px;
+  place-items: center;
+  padding: 28px;
+}
+
+.detail-gallery__image {
+  width: min(100%, 430px);
+  max-height: 330px;
+  object-fit: contain;
+  filter: drop-shadow(0 28px 42px rgba(67, 35, 83, 0.2));
+}
+
+.detail-gallery__thumbs {
+  display: flex;
+  max-width: 100%;
+  gap: 10px;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 4px 4px 8px;
+  scrollbar-width: thin;
+}
+
+.detail-gallery__thumb {
+  flex: 0 0 auto;
+  width: 68px;
+  height: 68px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 12px 26px rgba(67, 35, 83, 0.12);
+  padding: 6px;
+  cursor: pointer;
+}
+
+.detail-gallery__thumb[aria-pressed='true'] {
+  border-color: color-mix(in srgb, var(--detail-color) 76%, #ffffff);
+}
+
+.detail-gallery__thumb:focus-visible {
+  outline: 3px solid rgba(36, 17, 51, 0.28);
+  outline-offset: 3px;
+}
+
+.detail-gallery__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .detail-ribbon {
@@ -1252,6 +1437,10 @@ html {
     min-height: 470px;
   }
 
+  .hero-image-collage {
+    min-height: 470px;
+  }
+
   .hero-freezer__pop--0 {
     left: 9%;
   }
@@ -1276,6 +1465,14 @@ html {
   .product-detail-hero,
   .page-hero {
     padding: 56px 0;
+  }
+
+  .about-story-section {
+    padding-bottom: 28px;
+  }
+
+  .about-values-section {
+    padding-top: 36px;
   }
 
   .hero-title {
@@ -1304,6 +1501,18 @@ html {
 
   .hero-freezer {
     min-height: 390px;
+  }
+
+  .hero-image-collage {
+    min-height: 390px;
+    grid-template-columns: repeat(auto-fit, minmax(86px, 1fr));
+    gap: 12px;
+    padding: 62px 20px 28px;
+  }
+
+  .hero-image-collage__image {
+    width: min(100%, 118px);
+    max-height: 270px;
   }
 
   .hero-freezer__shelf {
@@ -1354,6 +1563,15 @@ html {
     min-height: 360px;
   }
 
+  .detail-gallery {
+    min-height: 340px;
+    padding: 22px;
+  }
+
+  .detail-gallery__image {
+    max-height: 250px;
+  }
+
   .detail-flavor-panel {
     min-height: 360px;
   }
@@ -1386,6 +1604,17 @@ html {
     min-height: 330px;
   }
 
+  .hero-image-collage {
+    min-height: 330px;
+    grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+    padding: 54px 14px 22px;
+  }
+
+  .hero-image-collage__image {
+    width: min(100%, 94px);
+    max-height: 230px;
+  }
+
   .hero-freezer__tag {
     top: 14px;
     left: 14px;
@@ -1408,6 +1637,16 @@ html {
   .product-scroll {
     grid-auto-columns: minmax(245px, 86%);
     gap: 18px;
+  }
+
+  .product-card__image {
+    width: min(100%, 190px);
+    height: 190px;
+  }
+
+  .detail-gallery__thumb {
+    width: 58px;
+    height: 58px;
   }
 
   .detail-ribbon,

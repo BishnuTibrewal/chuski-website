@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react'
 import { Button, Chip, Container, Grid, Stack, Typography } from '@mui/material'
 import { Link, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
@@ -31,6 +32,15 @@ const tradePoints = [
 function ProductDetails() {
   const { slug } = useParams()
   const product = findProductBySlug(slug)
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [failedImages, setFailedImages] = useState(() => new Set())
+
+  const productImages = useMemo(() => product?.images || [], [product?.images])
+  const visibleImages = useMemo(
+    () => productImages.filter((image) => !failedImages.has(image)),
+    [failedImages, productImages],
+  )
+  const mainImage = visibleImages.includes(selectedImage) ? selectedImage : visibleImages[0]
 
   if (!product) {
     return (
@@ -49,6 +59,8 @@ function ProductDetails() {
   }
 
   const isComingSoon = product.status === 'coming-soon'
+  const imageAlt =
+    product.imageAlt || `${product.name} ${product.flavor} CHUSKI ice pop`
   const availabilityLabel = isComingSoon ? 'Launch status' : 'Availability'
   const availabilityText = isComingSoon ? 'Coming soon' : 'Ready for freezer placement'
   const productMoments = [
@@ -57,6 +69,14 @@ function ProductDetails() {
     'Summer event counters',
     'Neighbourhood retail freezers',
   ]
+
+  const handleImageError = (image) => {
+    setFailedImages((currentFailedImages) => {
+      const nextFailedImages = new Set(currentFailedImages)
+      nextFailedImages.add(image)
+      return nextFailedImages
+    })
+  }
 
   return (
     <>
@@ -113,12 +133,44 @@ function ProductDetails() {
                 <span className="detail-ribbon detail-ribbon--two" />
                 <span className="detail-frost detail-frost--one" />
                 <span className="detail-frost detail-frost--two" />
-                <IcePopVisual
-                  gradient={product.gradient}
-                  color={product.color}
-                  label={`${product.name} ice pop`}
-                  size="display"
-                />
+                {mainImage ? (
+                  <div className="detail-gallery">
+                    <img
+                      className="detail-gallery__image"
+                      src={mainImage}
+                      alt={imageAlt}
+                      onError={() => handleImageError(mainImage)}
+                    />
+                    {visibleImages.length > 1 && (
+                      <div className="detail-gallery__thumbs" aria-label={`${product.name} images`}>
+                        {visibleImages.map((image, index) => (
+                          <button
+                            className="detail-gallery__thumb"
+                            type="button"
+                            key={image}
+                            aria-label={`Show ${product.name} image ${index + 1}`}
+                            aria-pressed={image === mainImage}
+                            onClick={() => setSelectedImage(image)}
+                          >
+                            <img
+                              src={image}
+                              alt={`${imageAlt} thumbnail ${index + 1}`}
+                              loading="lazy"
+                              onError={() => handleImageError(image)}
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <IcePopVisual
+                    gradient={product.gradient}
+                    color={product.color}
+                    label={`${product.name} ice pop`}
+                    size="display"
+                  />
+                )}
               </motion.div>
             </Grid>
           </Grid>

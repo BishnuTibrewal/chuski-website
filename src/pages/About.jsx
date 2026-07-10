@@ -19,7 +19,7 @@ function About() {
         </Container>
       </section>
 
-      <section className="section" id="about-story">
+      <section className="section about-story-section" id="about-story">
         <Container maxWidth="xl">
           <Grid container spacing={4} alignItems="center">
             <Grid size={{ xs: 12, md: 5 }}>
@@ -56,10 +56,16 @@ function About() {
               </div>
             </Grid>
           </Grid>
+          <figure className="about-banner">
+            <img
+              src="/herobanner.png"
+              alt="CHUSKI flavour moments with families enjoying ice pops"
+            />
+          </figure>
         </Container>
       </section>
 
-      <section className="section section--tint">
+      <section className="section section--tint about-values-section">
         <Container maxWidth="xl">
           <Grid container spacing={3}>
             {[
