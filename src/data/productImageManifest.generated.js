@@ -32,7 +32,7 @@ export const productImageManifest = {
     "/orangeoye/OrangeOye-1.png",
     "/orangeoye/OrangeOye-3.png",
     "/orangeoye/OrangeOye-2.png",
-    "/orangeoye/mixed-1.png",
+    "/orangeoye/mixed-1.png"
   ]
 }
 
@@ -44,5 +44,5 @@ export const homepageHeroImages = [
   "/Homepage/mangoMastani-4.png",
   "/Homepage/mixed-1.png",
   "/Homepage/OrangeOye-2.png",
-  "/Homepage/kalakhatta-3.png",
+  "/Homepage/kalakhatta-3.png"
 ]

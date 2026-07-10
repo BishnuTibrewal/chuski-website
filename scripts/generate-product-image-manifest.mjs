@@ -19,18 +19,74 @@ const productFolders = {
 
 const homepageHeroFolder = 'Homepage'
 
+const imageOrderOverrides = {
+  PakkaAam: [
+    'pakkaAam-2.png',
+    'PakkaAam-1.png',
+    'mangoMastani-4.png',
+    'mixed-1.png',
+    'PakkaAam-3.png',
+  ],
+  orangeoye: [
+    'OrangeOye-1.png',
+    'OrangeOye-3.png',
+    'OrangeOye-2.png',
+    'mixed-1.png',
+  ],
+  Homepage: [
+    'kacchikairi-4.png',
+    'OrangeOye-3.png',
+    'kalakhatta-2.png',
+    'LalchiLychee-2.png',
+    'mangoMastani-4.png',
+    'mixed-1.png',
+    'OrangeOye-2.png',
+    'kalakhatta-3.png',
+  ],
+}
+
 const toPublicUrl = (folder, filename) =>
   `/${[folder, filename].map((segment) => encodeURIComponent(segment)).join('/')}`
+
+const sortFilenames = (folder, filenames) => {
+  const orderOverride = imageOrderOverrides[folder]
+
+  if (!orderOverride) {
+    return filenames.sort((a, b) => a.localeCompare(b, 'en', { numeric: true, sensitivity: 'base' }))
+  }
+
+  const orderRank = new Map(orderOverride.map((filename, index) => [filename, index]))
+
+  return filenames.sort((a, b) => {
+    const aRank = orderRank.get(a)
+    const bRank = orderRank.get(b)
+
+    if (aRank !== undefined && bRank !== undefined) {
+      return aRank - bRank
+    }
+
+    if (aRank !== undefined) {
+      return -1
+    }
+
+    if (bRank !== undefined) {
+      return 1
+    }
+
+    return a.localeCompare(b, 'en', { numeric: true, sensitivity: 'base' })
+  })
+}
 
 async function getProductImages(folder) {
   try {
     const entries = await readdir(path.join(publicDir, folder), { withFileTypes: true })
 
-    return entries
+    const filenames = entries
       .filter((entry) => entry.isFile())
       .map((entry) => entry.name)
       .filter((filename) => supportedExtensions.has(path.extname(filename).toLowerCase()))
-      .sort((a, b) => a.localeCompare(b, 'en', { numeric: true, sensitivity: 'base' }))
+
+    return sortFilenames(folder, filenames)
       .map((filename) => toPublicUrl(folder, filename))
   } catch (error) {
     if (error.code === 'ENOENT') {
