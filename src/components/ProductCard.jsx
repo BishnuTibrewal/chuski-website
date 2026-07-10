@@ -15,7 +15,11 @@ function ProductCard({ product }) {
   return (
     <Card className="product-card">
       <CardContent className="product-card__content">
-        <div className="product-card__visual">
+        <Link
+          className="product-card__visual product-card__visual-link"
+          to={`/products/${product.slug}`}
+          aria-label={`View details for ${product.name}`}
+        >
           {isComingSoon && <Chip label="Coming soon" className="coming-soon-badge" />}
           {primaryImage && !imageFailed ? (
             <img
@@ -32,13 +36,20 @@ function ProductCard({ product }) {
               label={`${product.name} ice pop`}
             />
           )}
-        </div>
+        </Link>
         <Stack spacing={1.5}>
           <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
             <Chip label={product.flavor} className="product-card__chip" />
             {isComingSoon && <Chip label="Coming soon" className="coming-soon-badge" />}
           </Stack>
-          <Typography variant="h3">{product.name}</Typography>
+          <Typography
+            variant="h3"
+            component={Link}
+            to={`/products/${product.slug}`}
+            className="product-card__title-link"
+          >
+            {product.name}
+          </Typography>
           <Typography color="text.secondary">{product.shortDescription}</Typography>
           <Button
             component={Link}

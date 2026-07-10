@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
@@ -25,7 +25,22 @@ const heroTitle = ['C', 'H', 'U', 'S', 'K', 'I']
 
 function Home() {
   const [failedHeroImages, setFailedHeroImages] = useState(() => new Set())
+  const [heroImageIndex, setHeroImageIndex] = useState(0)
   const visibleHeroImages = homepageHeroImages.filter((image) => !failedHeroImages.has(image))
+  const activeHeroImageIndex =
+    visibleHeroImages.length > 0 ? heroImageIndex % visibleHeroImages.length : 0
+
+  useEffect(() => {
+    if (visibleHeroImages.length <= 1) {
+      return undefined
+    }
+
+    const timerId = window.setInterval(() => {
+      setHeroImageIndex((currentIndex) => currentIndex + 1)
+    }, 2000)
+
+    return () => window.clearInterval(timerId)
+  }, [visibleHeroImages.length])
 
   const handleHeroImageError = (image) => {
     setFailedHeroImages((currentFailedImages) => {
@@ -88,17 +103,32 @@ function Home() {
               >
                 <div className="hero-freezer__tag">Every CHUSKI has a Story !!</div>
                 {visibleHeroImages.length > 0 ? (
-                  <div className="hero-image-collage" aria-label="Featured CHUSKI ice pop flavours">
-                    {visibleHeroImages.map((image, index) => (
-                      <img
-                        className="hero-image-collage__image"
-                        src={image}
-                        alt={`Featured CHUSKI ice pop ${index + 1}`}
-                        key={image}
-                        loading={index === 0 ? 'eager' : 'lazy'}
-                        onError={() => handleHeroImageError(image)}
-                      />
-                    ))}
+                  <div className="hero-image-carousel" aria-label="Featured CHUSKI ice pop flavours">
+                    <div
+                      className="hero-image-carousel__track"
+                      style={{ '--hero-slide-index': activeHeroImageIndex }}
+                    >
+                      {visibleHeroImages.map((image, index) => (
+                        <div className="hero-image-carousel__slide" key={image}>
+                          <img
+                            className="hero-image-carousel__image"
+                            src={image}
+                            alt={`Featured CHUSKI ice pop ${index + 1}`}
+                            loading={index === 0 ? 'eager' : 'lazy'}
+                            onError={() => handleHeroImageError(image)}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="hero-image-carousel__dots" aria-hidden="true">
+                      {visibleHeroImages.map((image, index) => (
+                        <span
+                          className="hero-image-carousel__dot"
+                          data-active={index === activeHeroImageIndex}
+                          key={`${image}-dot`}
+                        />
+                      ))}
+                    </div>
                   </div>
                 ) : (
                   <>
