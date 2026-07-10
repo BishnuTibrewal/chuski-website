@@ -598,6 +598,7 @@ html {
 }
 
 .flavour-ticker {
+  position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.78);
   border-radius: 8px;
@@ -605,6 +606,27 @@ html {
   background: rgba(255, 255, 255, 0.58);
   box-shadow: 0 18px 50px rgba(67, 35, 83, 0.08);
   backdrop-filter: blur(14px);
+}
+
+.flavour-ticker::before,
+.flavour-ticker::after {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 88px;
+  height: 100%;
+  content: '';
+  pointer-events: none;
+}
+
+.flavour-ticker::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255, 250, 253, 0.94), transparent);
+}
+
+.flavour-ticker::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(255, 250, 253, 0.94), transparent);
 }
 
 .flavour-ticker__track {
@@ -615,39 +637,39 @@ html {
   animation: flavour-ticker-slide 22s linear infinite;
 }
 
-.flavour-ticker span {
+.flavour-ticker__pill {
   border-radius: 8px;
   padding: 8px 12px;
-  color: var(--ticker-text, #241133);
+  color: var(--ticker-text);
   background: var(--ticker-bg);
   font-size: 0.84rem;
   font-weight: 950;
   white-space: nowrap;
 }
 
-.flavour-ticker span:nth-child(5n + 1) {
+.flavour-ticker__pill--kacchi {
   --ticker-bg: linear-gradient(135deg, #d7ff8f, #76d14d);
   --ticker-text: #214d18;
 }
 
-.flavour-ticker span:nth-child(5n + 2) {
+.flavour-ticker__pill--mango {
   --ticker-bg: linear-gradient(135deg, #ffe27a, #ff9f1c);
   --ticker-text: #5f3300;
 }
 
-.flavour-ticker span:nth-child(5n + 3) {
+.flavour-ticker__pill--lychee {
+  --ticker-bg: linear-gradient(135deg, #ffe4ec, #f06292);
+  --ticker-text: #6d1233;
+}
+
+.flavour-ticker__pill--khatta {
   --ticker-bg: linear-gradient(135deg, #b576f0, #4b1b77);
   --ticker-text: #ffffff;
 }
 
-.flavour-ticker span:nth-child(5n + 4) {
+.flavour-ticker__pill--orange {
   --ticker-bg: linear-gradient(135deg, #ffbd59, #ff5f2e);
   --ticker-text: #5b1900;
-}
-
-.flavour-ticker span:nth-child(5n) {
-  --ticker-bg: linear-gradient(135deg, #ffe4ec, #f06292);
-  --ticker-text: #6d1233;
 }
 
 .section {
@@ -1508,6 +1530,10 @@ html {
     transform: translateX(0);
     transition: none;
   }
+
+  .flavour-ticker__track {
+    animation: none;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1550,6 +1576,10 @@ html {
 
   .hero-stats {
     grid-template-columns: 1fr;
+  }
+
+  .flavour-ticker__track {
+    padding: 12px;
   }
 
   .hero-fun-prop,

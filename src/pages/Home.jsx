@@ -20,7 +20,13 @@ const stats = [
 ]
 
 const heroProducts = products.slice(0, 4)
-const flavourTicker = ['Kacchi Kick', 'Mast Mango', 'Kala Khatta', 'Orange Oye!', 'Litchi Love']
+const flavourTicker = [
+  { name: 'Kacchi Kick', tone: 'kacchi' },
+  { name: 'Mango Mastani', tone: 'mango' },
+  { name: 'Lalchi Litchi', tone: 'lychee' },
+  { name: 'Kala Khatta Kadak', tone: 'khatta' },
+  { name: 'Orange Oye!', tone: 'orange' },
+]
 const heroTitle = ['C', 'H', 'U', 'S', 'K', 'I']
 
 function Home() {
@@ -164,7 +170,12 @@ function Home() {
           <div className="flavour-ticker" aria-label="Featured CHUSKI flavours">
             <div className="flavour-ticker__track">
               {[...flavourTicker, ...flavourTicker].map((flavour, index) => (
-                <span key={`${flavour}-${index}`}>{flavour}</span>
+                <span
+                  className={`flavour-ticker__pill flavour-ticker__pill--${flavour.tone}`}
+                  key={`${flavour.name}-${index}`}
+                >
+                  {flavour.name}
+                </span>
               ))}
             </div>
           </div>
